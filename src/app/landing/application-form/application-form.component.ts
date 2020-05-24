@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, Validators, FormBuilder } from "@angular/forms";
 import { Router } from "@angular/router";
 
+import { ApplicationService } from "src/app/core/services/application.service";
+
 @Component({
   selector: "app-application-form",
   templateUrl: "./application-form.component.html",
@@ -10,7 +12,11 @@ import { Router } from "@angular/router";
 export class ApplicationFormComponent implements OnInit {
   form: FormGroup;
 
-  constructor(private fromBuilder: FormBuilder, private router: Router) {}
+  constructor(
+    private service: ApplicationService,
+    private fromBuilder: FormBuilder,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.setApplicationForm();
@@ -28,7 +34,16 @@ export class ApplicationFormComponent implements OnInit {
     this.router.navigate(["rent"]);
   }
 
+  private fillApplicationData(): void {
+    const { rut, phone, email } = this.form.getRawValue();
+
+    this.service.setRut(rut);
+    this.service.setPhone(phone);
+    this.service.setEmail(email);
+  }
+
   onContinue(): void {
+    this.fillApplicationData();
     this.goToRent();
   }
 }
