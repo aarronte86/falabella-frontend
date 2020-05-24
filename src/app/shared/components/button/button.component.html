@@ -1,7 +1,8 @@
 <button
-  class="form-button button"
+  class="button"
   [ngClass]="disabled && 'disabled'"
   type="button"
+  (click)="!disabled && onClick()"
 >
   {{ label }}
 </button>

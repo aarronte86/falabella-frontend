@@ -1,0 +1,51 @@
+<div class="form">
+  <h2 class="form-title"><strong>Ingresa</strong> tus datos</h2>
+  <p class="from-description">
+    Solo necesitas tener tu cédula para realizar la solicitud.
+  </p>
+
+  <form [formGroup]="form">
+    <div class="form-field">
+      <label class="form-field-label" for="rut">Rut</label>
+      <div class="form-field-input">
+        <input
+          id="rut"
+          formControlName="rut"
+          type="text"
+          placeholder="Ej: 11.111.111-1"
+        />
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label class="form-field-label" for="phone">Celular</label>
+      <div class="form-field-input">
+        <input
+          id="phone"
+          formControlName="phone"
+          type="text"
+          placeholder="Ej: 976341264"
+        />
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label class="form-field-label" for="email">Correo electrónico</label>
+      <div class="form-field-input">
+        <input
+          id="email"
+          formControlName="email"
+          type="text"
+          placeholder="Ej: correo@correo.cl"
+        />
+      </div>
+    </div>
+
+    <app-button
+      class="form-button"
+      label="Continuar"
+      [disabled]="!form.valid"
+      (clicked)="onContinue()"
+    ></app-button>
+  </form>
+</div>
