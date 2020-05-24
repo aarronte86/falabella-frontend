@@ -1,0 +1,23 @@
+@font-face {
+  font-family: pfbeausans;
+  src: url(assets/fonts/PFBeauSansPro-Regular.woff2) format("woff2"),
+    url(assets/fonts/PFBeauSansPro-Regular.woff);
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: pfbeausans;
+  src: url(assets/fonts/PFBeauSansPro-Bold.woff2) format("woff2"),
+    url(assets/fonts/PFBeauSansPro-Bold.woff);
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: pfbeausans;
+  src: url(assets/fonts/PFBeauSansPro-Thin.woff2) format("woff2"),
+    url(assets/fonts/PFBeauSansPro-Thin.woff);
+  font-weight: 300;
+  font-style: normal;
+}

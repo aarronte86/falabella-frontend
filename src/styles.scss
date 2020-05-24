@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+
+//----------------------------------*\
+// Fonts
+//----------------------------------*/
+@import "assets/scss/_fonts.scss";
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: pfbeausans, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: normal;
+  color: #596266;
+}
