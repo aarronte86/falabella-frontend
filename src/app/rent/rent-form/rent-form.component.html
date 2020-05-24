@@ -1,0 +1,29 @@
+<div class="form">
+  <h2 class="form-title"><strong>Ayúdanos</strong> con unos datos más</h2>
+  <p class="from-description">
+    Porque te queremos dar una oferta hecha a la medida para ti, necesitamos
+    saber un poco más.
+  </p>
+
+  <form [formGroup]="form">
+    <div class="form-field">
+      <label class="form-field-label" for="rent"
+        >¿Cuál es tu renta líquida/ingreso mensual?</label
+      >
+      <div class="form-field-input">
+        <input
+          id="rent"
+          formControlName="rent"
+          type="text"
+          placeholder="Ej: $400.000"
+        />
+      </div>
+    </div>
+  </form>
+
+  <app-button
+    label="Continuar"
+    [disabled]="!form.valid"
+    (clicked)="onContinue()"
+  ></app-button>
+</div>
