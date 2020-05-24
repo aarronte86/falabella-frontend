@@ -1,0 +1,50 @@
+.form {
+  overflow: auto;
+
+  &-title {
+    margin: 1.5rem 0 2rem;
+    font-weight: 300;
+    font-size: 2rem;
+
+    strong {
+      font-weight: inherit;
+      color: #008537;
+    }
+  }
+
+  &-field {
+    margin: 2rem 0;
+
+    &-label,
+    &-input {
+      display: block;
+    }
+
+    &-input {
+      margin-top: 0.5rem;
+      padding: 0.75rem;
+      border: #d9e2e6 solid 1px;
+      border-radius: 3px;
+
+      input {
+        font-size: 1rem;
+        color: inherit;
+        font-family: inherit;
+        border: none;
+
+        &::placeholder {
+          color: #8a9299;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+
+  &-button {
+    display: block;
+    width: 100%;
+  }
+}

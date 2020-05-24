@@ -10,6 +10,17 @@
 //----------------------------------*/
 @import "assets/scss/reset.scss";
 
+//----------------------------------*\
+// Components style
+//----------------------------------*/
+@import "assets/scss/components/button.scss";
+@import "assets/scss/components/form.scss";
+
+//----------------------------------*\
+// Utils
+//----------------------------------*/
+@import "assets/scss/utils.scss";
+
 html {
   font-size: 16px;
 }
