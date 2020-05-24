@@ -10,4 +10,9 @@
   border-radius: 4px;
   letter-spacing: 2px;
   outline: none;
+
+  &.disabled {
+    color: inherit;
+    background-color: #dddddd;
+  }
 }

@@ -1,15 +1,11 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
 
-import { RentRoutingModule } from './rent-routing.module';
-import { RentComponent } from './rent.component';
-
+import { SharedModule } from "../shared/shared.module";
+import { RentRoutingModule } from "./rent-routing.module";
+import { RentComponent } from "./rent.component";
 
 @NgModule({
   declarations: [RentComponent],
-  imports: [
-    CommonModule,
-    RentRoutingModule
-  ]
+  imports: [SharedModule, RentRoutingModule],
 })
-export class RentModule { }
+export class RentModule {}
