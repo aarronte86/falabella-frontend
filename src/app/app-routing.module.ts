@@ -8,6 +8,10 @@ const routes: Routes = [
       import("./landing/landing.module").then((m) => m.LandingModule),
   },
   {
+    path: "rent",
+    loadChildren: () => import("./rent/rent.module").then((m) => m.RentModule),
+  },
+  {
     path: "**",
     redirectTo: "",
   },
