@@ -3,7 +3,12 @@
 //----------------------------------*\
 // Fonts
 //----------------------------------*/
-@import "assets/scss/_fonts.scss";
+@import "assets/scss/fonts.scss";
+
+//----------------------------------*\
+// Reset styles
+//----------------------------------*/
+@import "assets/scss/reset.scss";
 
 html {
   font-size: 16px;
@@ -15,4 +20,10 @@ body {
   font-weight: 400;
   font-style: normal;
   color: #596266;
+}
+
+@media (min-width: 1200px) {
+  html {
+    font-size: 20px;
+  }
 }
