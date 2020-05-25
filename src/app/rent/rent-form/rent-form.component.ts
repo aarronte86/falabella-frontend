@@ -1,8 +1,9 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 import { empty } from "rxjs";
-import { catchError, delay } from "rxjs/operators";
+import { catchError } from "rxjs/operators";
 
 import { ApplicationService } from "src/app/core/services/application.service";
 
@@ -18,7 +19,8 @@ export class RentFormComponent implements OnInit {
 
   constructor(
     private service: ApplicationService,
-    private fromBuilder: FormBuilder
+    private fromBuilder: FormBuilder,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -39,6 +41,10 @@ export class RentFormComponent implements OnInit {
     });
   }
 
+  private goToLanding(): void {
+    this.router.navigate(["/"]);
+  }
+
   onContinue(): void {
     this._isProcessing = true;
 
@@ -47,7 +53,6 @@ export class RentFormComponent implements OnInit {
     this.service
       .sendApplication(rent)
       .pipe(
-        delay(3000),
         catchError(() => {
           alert(
             "Ups! No estamos disponible en estos momentos. Intente nuevamente en unos minutos."
@@ -57,7 +62,13 @@ export class RentFormComponent implements OnInit {
         })
       )
       .subscribe(
-        () => {},
+        () => {
+          alert(
+            "En hora buena! Su solicitud ha sido recibida de forma existosa."
+          );
+
+          this.goToLanding();
+        },
         () => {},
         () => (this._isProcessing = false)
       );
