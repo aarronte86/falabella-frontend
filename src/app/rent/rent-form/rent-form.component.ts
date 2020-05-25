@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 import { empty } from "rxjs";
-import { catchError } from "rxjs/operators";
+import { catchError, delay } from "rxjs/operators";
 
 import { ApplicationService } from "src/app/core/services/application.service";
 
@@ -12,6 +12,8 @@ import { ApplicationService } from "src/app/core/services/application.service";
   styleUrls: ["./rent-form.component.scss"],
 })
 export class RentFormComponent implements OnInit {
+  private _isProcessing = false;
+
   form: FormGroup;
 
   constructor(
@@ -23,6 +25,14 @@ export class RentFormComponent implements OnInit {
     this.setRentForm();
   }
 
+  get isProcessing(): boolean {
+    return this._isProcessing;
+  }
+
+  get sendButtonLabel(): string {
+    return this.isProcessing ? "Enviando..." : "Continuar";
+  }
+
   private setRentForm(): void {
     this.form = this.fromBuilder.group({
       rent: ["", Validators.required],
@@ -30,11 +40,14 @@ export class RentFormComponent implements OnInit {
   }
 
   onContinue(): void {
+    this._isProcessing = true;
+
     const { rent } = this.form.getRawValue();
 
     this.service
       .sendApplication(rent)
       .pipe(
+        delay(3000),
         catchError(() => {
           alert(
             "Ups! No estamos disponible en estos momentos. Intente nuevamente en unos minutos."
@@ -43,6 +56,10 @@ export class RentFormComponent implements OnInit {
           return empty();
         })
       )
-      .subscribe();
+      .subscribe(
+        () => {},
+        () => {},
+        () => (this._isProcessing = false)
+      );
   }
 }

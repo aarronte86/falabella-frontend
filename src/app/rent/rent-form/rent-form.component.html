@@ -23,8 +23,8 @@
 
   <app-button
     class="form-button"
-    label="Continuar"
-    [disabled]="!form.valid"
+    [label]="sendButtonLabel"
+    [disabled]="!form.valid || isProcessing"
     (clicked)="onContinue()"
   ></app-button>
 </div>
